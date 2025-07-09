@@ -1,28 +1,39 @@
-/* أنماط عامة */
+/* أنماط عامة لجميع الصفحات */
 :root {
-  --primary-color: #6F4E37; /* بني قهوة */
+  /* الألوان الرئيسية */
+  --primary-color: #6F4E37; /* بني قهوة رئيسي */
+  --primary-light: #8B6B4D; /* بني فاتح */
+  --primary-dark: #4B3621; /* بني داكن */
+  
   --secondary-color: #C4A484; /* بيج */
-  --accent-color: #D2B48C;
-  --dark-color: #4B3621;
-  --light-color: #F5F5DC;
-  --success-color: #4CAF50;
-  --danger-color: #F44336;
-  --warning-color: #FFA726;
-  --info-color: #2196F3;
-  --text-color: #333;
-  --light-text: #FFF;
-  --gray-text: #777;
-  --border-color: #EEE;
-  --card-bg: #FFF;
-  --page-bg: #F9F5F0;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --accent-color: #D2B48C; /* بيج ذهبي */
+  
+  /* ألوان الحالات */
+  --success-color: #4CAF50; /* أخضر */
+  --danger-color: #F44336; /* أحمر */
+  --warning-color: #FFA726; /* برتقالي */
+  --info-color: #2196F3; /* أزرق */
+  
+  /* ألوان النص */
+  --text-color: #333333;
+  --light-text: #FFFFFF;
+  --gray-text: #777777;
+  
+  /* ألوان الخلفيات */
+  --page-bg: #F9F5F0; /* خلفية الصفحة */
+  --card-bg: #FFFFFF; /* خلفية البطاقات */
+  --section-bg: #FFFDFA; /* خلفية الأقسام */
+  
+  /* ألوان إضافية */
+  --border-color: #EEEEEE;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  
+  /* تأثيرات */
+  --shadow: 0 4px 12px var(--shadow-color);
   --transition: all 0.3s ease;
-  --pending-color: #FFA726;
-  --completed-color: #66BB6A;
-  --menu-item-bg: #FFF8E1;
-  --order-card-bg: #FFFFFF;
 }
 
+/* إعادة الضبط الأساسية */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -39,130 +50,135 @@ body {
   text-align: right;
 }
 
-/* لوحة التحكم */
-.admin-container {
+/* الهيكل العام */
+.container, .admin-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.login-card {
-  max-width: 450px;
-  margin: 50px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.login-header {
-  background: var(--primary-color);
-  color: white;
-  padding: 30px;
-  text-align: center;
-}
-
-.login-header i {
-  font-size: 40px;
+/* العناصر العامة */
+h1, h2, h3, h4 {
+  color: var(--primary-dark);
   margin-bottom: 15px;
 }
 
-.login-header h1 {
-  font-size: 24px;
+p {
+  margin-bottom: 15px;
 }
 
-.login-body {
-  padding: 30px;
-  background: white;
+a {
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
-.input-group {
-  margin-bottom: 20px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: var(--dark-color);
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px 15px;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 16px;
-  transition: var(--transition);
-}
-
-.input-group input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.1);
-}
-
-.btn-login {
-  width: 100%;
-  padding: 14px;
-  background: var(--primary-color);
-  color: white;
-  border: none;
+/* الأزرار */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  border: none;
 }
 
-.btn-login:hover {
-  background: var(--dark-color);
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
 }
 
-/* لوحة التحكم الرئيسية */
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--light-text);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: var(--light-text);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: var(--light-text);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: var(--light-text);
+}
+
+.btn-large {
+  padding: 15px 25px;
+  font-size: 18px;
+}
+
+/* البطاقات */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* صفحة العميل */
+.main-header {
+  text-align: center;
+  padding: 30px 0;
+  margin-bottom: 30px;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.main-header p {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+/* صفحة إدارة الطلبات */
 .admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
   margin-bottom: 30px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 }
 
-.admin-header h1 {
-  color: var(--primary-color);
-  font-size: 28px;
-}
-
-.btn-logout {
-  background: var(--danger-color);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-logout:hover {
-  background: #d32f2f;
-}
-
-/* إدارة الطلبات */
 .admin-section {
-  background: white;
+  background-color: var(--section-bg);
   padding: 25px;
   border-radius: 12px;
   margin-bottom: 30px;
   box-shadow: var(--shadow);
-}
-
-.admin-section h2 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-size: 24px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #f0f0f0;
 }
 
 .filter-tabs {
@@ -174,26 +190,28 @@ body {
 
 .filter-tab {
   padding: 10px 20px;
-  background: #f0f0f0;
+  background-color: var(--light-text);
   color: var(--text-color);
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   transition: var(--transition);
-  border: none;
-  font-size: 15px;
+  border: 1px solid var(--border-color);
 }
 
 .filter-tab.active {
-  background: var(--primary-color);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-color: var(--primary-color);
 }
 
 .filter-tab.danger {
-  background: var(--danger-color);
-  color: white;
+  background-color: var(--danger-color);
+  color: var(--light-text);
+  margin-right: auto;
 }
 
+/* بطاقات الطلبات */
 .orders-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -201,38 +219,33 @@ body {
 }
 
 .order-card {
-  background: var(--order-card-bg);
+  background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
+  overflow: hidden;
   border-right: 5px solid;
   transition: var(--transition);
-  overflow: hidden;
 }
 
 .order-card.pending {
-  border-right-color: var(--pending-color);
+  border-right-color: var(--warning-color);
 }
 
 .order-card.completed {
-  border-right-color: var(--completed-color);
+  border-right-color: var(--success-color);
   opacity: 0.9;
 }
 
 .order-header {
   padding: 18px;
-  background: #f9f9f9;
-  border-bottom: 1px solid #eee;
+  background-color: var(--page-bg);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .order-meta {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-}
-
-.order-id {
-  font-weight: 600;
-  color: #555;
 }
 
 .order-status {
@@ -243,25 +256,13 @@ body {
 }
 
 .order-status.pending {
-  background: var(--pending-color);
-  color: white;
+  background-color: var(--warning-color);
+  color: var(--light-text);
 }
 
 .order-status.completed {
-  background: var(--completed-color);
-  color: white;
-}
-
-.order-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--primary-color);
-  margin: 10px 0;
-}
-
-.order-time {
-  color: #666;
-  font-size: 14px;
+  background-color: var(--success-color);
+  color: var(--light-text);
 }
 
 .order-items {
@@ -271,51 +272,42 @@ body {
 .order-item {
   margin-bottom: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px dashed var(--border-color);
 }
 
 .item-name {
   font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-  font-size: 16px;
+  color: var(--primary-dark);
 }
 
 .item-details {
   display: flex;
-  gap: 15px;
-  align-items: center;
-  font-size: 14px;
-}
-
-.item-total {
-  font-weight: bold;
-  color: var(--primary-color);
-  margin-right: auto;
+  justify-content: space-between;
+  margin-top: 5px;
 }
 
 .item-note {
-  background: #f5f5f5;
+  background-color: #f5f5f5;
   padding: 8px;
   border-radius: 6px;
   margin-top: 8px;
   font-size: 14px;
-  color: #555;
+  color: var(--gray-text);
 }
 
 .order-footer {
   padding: 15px;
-  background: #f9f9f9;
-  border-top: 1px solid #eee;
+  background-color: var(--page-bg);
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .order-total {
-  font-size: 18px;
   font-weight: bold;
-  color: var(--dark-color);
+  color: var(--primary-dark);
+  font-size: 18px;
 }
 
 .order-actions {
@@ -323,76 +315,7 @@ body {
   gap: 10px;
 }
 
-.btn-complete {
-  background: var(--success-color);
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.btn-complete:hover {
-  background: #388E3C;
-}
-
-.btn-delete {
-  background: var(--danger-color);
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.btn-delete:hover {
-  background: #d32f2f;
-}
-
-/* إدارة القائمة */
-.add-item-form {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.add-item-form .input-group {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-bottom: 0;
-}
-
-.add-item-form input {
-  flex: 1;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: white;
-}
-
-.btn-add {
-  background: var(--success-color);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-
-.btn-add:hover {
-  background: #388E3C;
-}
-
+/* صفحة إدارة القائمة */
 .menu-items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -401,19 +324,19 @@ body {
 }
 
 .menu-item {
-  background: var(--menu-item-bg);
+  background-color: var(--light-color);
   border-radius: 10px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid var(--secondary-color);
   transition: var(--transition);
 }
 
 .menu-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item-info {
@@ -422,8 +345,7 @@ body {
 
 .menu-item .item-name {
   font-size: 18px;
-  font-weight: bold;
-  color: var(--dark-color);
+  color: var(--primary-dark);
   margin-bottom: 5px;
 }
 
@@ -433,22 +355,48 @@ body {
   font-weight: bold;
 }
 
-/* حالات فارغة */
-.empty-orders, .empty-menu {
+.add-item-form {
+  background-color: var(--page-bg);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.add-item-form .input-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.add-item-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+/* الحالات الفارغة */
+.empty-state {
   text-align: center;
   padding: 40px 20px;
   color: var(--gray-text);
   grid-column: 1 / -1;
 }
 
-.empty-orders i, .empty-menu i {
+.empty-state i {
   font-size: 40px;
   margin-bottom: 15px;
-  color: #ddd;
+  color: var(--border-color);
 }
 
-.empty-orders p, .empty-menu p {
-  font-size: 16px;
+/* تأثيرات الحركة */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .menu-item, .order-card {
+  animation: fadeIn 0.5s ease-out;
 }
 
 /* التكيف مع الشاشات الصغيرة */
@@ -462,15 +410,6 @@ body {
     gap: 15px;
   }
   
-  .add-item-form .input-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .btn-add {
-    width: 100%;
-  }
-  
   .order-footer {
     flex-direction: column;
     gap: 15px;
@@ -480,18 +419,22 @@ body {
     width: 100%;
   }
   
-  .order-actions button {
-    flex: 1;
+  .add-item-form .input-group {
+    flex-direction: column;
+  }
+  
+  .btn-add {
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .login-card {
-    margin: 20px auto;
+  .main-header h1 {
+    font-size: 2rem;
   }
   
-  .admin-header h1 {
-    font-size: 24px;
+  .card {
+    padding: 15px;
   }
   
   .filter-tabs {
